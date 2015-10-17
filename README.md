@@ -8,11 +8,11 @@ Un IDE Java et Maven 3 (projet démo prévu pour eclipse)
 ## Première installation dans eclipse
 Télécharger la démo [ici](http://jonathan.peturaud.free.fr/poulet4j/Bot.zip)
 
-Dans eclipse, File -> Import, puis General -> Existing Projects in to Workspace et enfin Finish
+Dans eclipse, *File* -> *Import*, puis *General* -> *Existing Projects in to Workspace* et enfin *Finish*
 
 Le projet est prêt.
 
-Pour lancer un bot, Clic droit -> Run As -> Java Application 
+Pour lancer un bot, *Clic droit* -> *Run As* -> *Java Application*
 
 ## API
 La javadoc de l'API est disponible [ici](http://jonathan.peturaud.free.fr/poulet4j/api/index.html)
@@ -33,7 +33,7 @@ La dernière dépendance est
 ## Sauvegarde de la partie et Visualisation
 Il est possible de sauvegarder la partie en ajoutant **.saveGame()** au Runner. Cela donne :
 ```java
-        Runner.ia(new Bot1())**.saveGame()**.connectAndRun("localhost");
+        Runner.ia(new Bot1()).saveGame().connectAndRun("localhost");
 ```
 
 Les sauvegardes sont enregistrées dans le dossier **save**.
