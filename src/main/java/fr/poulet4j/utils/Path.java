@@ -7,9 +7,17 @@ import fr.poulet4j.model.Cell;
 
 public class Path {
 
-    public List<Cell> cells;
+	public List<Cell> cells;
 
-    public Path() {
-        cells = new LinkedList<Cell>();
-    }
+	public Path() {
+		cells = new LinkedList<Cell>();
+	}
+
+	public boolean isEmpty() {
+		return cells.isEmpty();
+	}
+
+	public int length() {
+		return cells.size();
+	}
 }

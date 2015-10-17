@@ -1,61 +1,26 @@
 package fr.poulet4j.core.message.client;
 
-import fr.poulet4j.model.Profil;
-
+/**
+ * Message d'authentification d'une IA.
+ */
 public class Authenticate extends ClientMessage {
 
     public static final String TYPE = "authenticate";
 
+    /** le nom de l'IA */
     public String name;
+
+    /** l'url vers l'avatar de l'IA */
     public String avatar;
 
-    /**
-     * le profil de l'ia.
-     */
-    public Profil profil;
+    /** le profil de l'ia. */
+    public int profil;
 
+    /**
+     * Constructeur.
+     */
     public Authenticate() {
         super(TYPE);
-    }
-
-    /**
-     * Get the name.
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Set the name.
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Get the avatar.
-     * @return the avatar
-     */
-    public String getAvatar() {
-        return avatar;
-    }
-
-    /**
-     * Set the avatar.
-     * @param avatar the avatar to set
-     */
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Profil getProfil() {
-        return profil;
-    }
-
-    public void setProfil(Profil profil) {
-        this.profil = profil;
     }
 
     /**
@@ -63,6 +28,6 @@ public class Authenticate extends ClientMessage {
      */
     @Override
     public String toString() {
-        return "Authenticate [name=" + name + ", avatar=" + avatar + ", profil=" + profil.name() + "]";
+        return "Authenticate [name=" + name + ", avatar=" + avatar + ", profil=" + profil + "]";
     }
 }

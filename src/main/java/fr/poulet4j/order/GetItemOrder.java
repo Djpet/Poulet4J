@@ -1,7 +1,7 @@
 package fr.poulet4j.order;
 
 /**
- * Order de ramassage d'item
+ * Ordre de ramassage d'item
  */
 public class GetItemOrder extends TurnAction {
 

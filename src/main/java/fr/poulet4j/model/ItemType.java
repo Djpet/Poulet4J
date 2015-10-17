@@ -1,6 +1,7 @@
 package fr.poulet4j.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Les types d'items
@@ -8,17 +9,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 public enum ItemType {
 
     /**
-     * potion d'invisibilit�
+     * Une potion d'invisibilité
      */
     POTION("potion"),
 
     /**
-     * parfum aux hormones
+     * Un parfum aux hormones
      */
     PARFUM("parfum"),
 
     /**
-     * piege
+     * Un piège.
      */
     TRAP("trap");
 
@@ -52,5 +53,10 @@ public enum ItemType {
             }
         }
         return null;
+    }
+
+    @JsonValue
+    public String value() {
+        return itemType;
     }
 }

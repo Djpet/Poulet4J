@@ -36,14 +36,11 @@ public class SocketWriter {
             outputStream.write(END_CHAR);
             outputStream.flush();
         } catch (JsonGenerationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOGGER.error("Erreur génération JSON", e);
         } catch (JsonMappingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOGGER.error("Erreur de mapping JSON", e);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            LOGGER.error("Erreur d'écriture JSON", e);
         }
 
     }

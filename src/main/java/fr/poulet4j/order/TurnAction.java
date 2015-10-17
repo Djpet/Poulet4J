@@ -1,13 +1,21 @@
 package fr.poulet4j.order;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 /**
- * Une action à executer pendant le tour.
+ * Une action Ã  executer pendant le tour.
  */
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({@Type(value = MoveOrder.class, name = "move"), @Type(value = GetItemOrder.class, name = "getItem"),
+        @Type(value = UseItemOrder.class, name = "useItem")})
 public class TurnAction {
 
     /** le type d'action */
     public Action type;
+
+    public TurnAction() {}
 
     public TurnAction(Action type) {
         this.type = type;

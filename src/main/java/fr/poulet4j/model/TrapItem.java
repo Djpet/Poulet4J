@@ -1,7 +1,10 @@
 package fr.poulet4j.model;
 
 /**
- * Item de piege. Utilis�e pour placer un piege sur la map.
+ * Item de piège.<br>
+ * Utilisé pour placer un piège sur la map.<br>
+ * <b>/!\ Vous pouvez tomber dans votre piège /!\</b><br>
+ * {@link GameConstants#TRAPED_DURATION}
  */
 public class TrapItem extends Item {
 

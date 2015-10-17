@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Une action à executer pendant le tour
+ * Listes des types d'action
  */
 public enum Action {
 

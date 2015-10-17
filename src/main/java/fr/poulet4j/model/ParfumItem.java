@@ -1,7 +1,9 @@
 package fr.poulet4j.model;
 
 /**
- * Item de parfum aux hormones de poule. Utilisée pour donner un bonus en PM au Coq.
+ * Item de parfum aux hormones de poule.<br>
+ * UtilisÃ© pour donner un bonus en PM au Coq.<br>
+ * {@link GameConstants#PARFUM_PM_BOOST}
  */
 public class ParfumItem extends Item {
 

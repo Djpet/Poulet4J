@@ -7,8 +7,16 @@ import java.util.Queue;
 import fr.poulet4j.model.Cell;
 import fr.poulet4j.model.GameMap;
 
+/** Utilitaires */
 public class MapUtils {
 
+    /**
+     * Calcule le chemin le plus court entre deux cellules
+     * @param source : cellule source
+     * @param destination : cellule de destination
+     * @param gameMap : la map
+     * @return le chemin sous forme de liste (la premi√®re cellule est la source)
+     */
     public static Path getPath(Cell source, Cell destination, GameMap gameMap) {
         Cell[][] cells = gameMap.cells;
         CellExtended[][] map = new CellExtended[25][25];
@@ -20,8 +28,8 @@ public class MapUtils {
         }
 
         Queue<CellExtended> queue = new LinkedList<CellExtended>();
-        map[source.r][source.c].weight = 0;
-        queue.add(map[source.r][source.c]);
+        map[source.y][source.x].weight = 0;
+        queue.add(map[source.y][source.x]);
 
         CellExtended dest = null;
         while (!queue.isEmpty() && dest == null) {
@@ -57,24 +65,23 @@ public class MapUtils {
         }
 
         Collections.reverse(path.cells);
-        path.cells.remove(0);
         return path;
     }
 
     /**
-     * VÈrifie si la cellule suivante a un poids : <br />
-     * - si oui : on l'oublie car un chemin dÈj‡ plus court la marquÈe<br />
+     * V√©rifie si la cellule suivante a un poids : <br />
+     * - si oui : on l'oublie car un chemin d√©j√† plus court l'a marqu√©e<br />
      * - si non : on la marque dans le chemin
      * @param queue : file de calcul
      * @param map : la map
      * @param current : cellule en cours d'analyse
      * @param next : cellule suivante de celle en cours d'analyse
      * @param destination : cellule de destination
-     * @return la cellule Ètendue si c'est la destination
+     * @return la cellule √©tendue si c'est la destination
      */
     private static CellExtended calcul(Queue<CellExtended> queue, CellExtended[][] map, CellExtended current, Cell next, Cell destination) {
         if (next != null) {
-            CellExtended nextCe = map[next.r][next.c];
+            CellExtended nextCe = map[next.y][next.x];
             if (nextCe.weight == -1) {
                 nextCe.weight = current.weight + 1;
                 nextCe.previousCell = current;

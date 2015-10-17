@@ -43,6 +43,7 @@ public class SocketReader {
         MsgJson msgJson = readMsg();
         long start = System.currentTimeMillis();
         GameServerMessage message = mapper.readValue(msgJson.getJson(), map.get(msgJson.getType()));
+        message.json = msgJson.getJson();
         LOGGER.debug("Transforme {}", System.currentTimeMillis() - start);
         return message;
     }
@@ -82,6 +83,8 @@ public class SocketReader {
                     isEnd++;
                     tampon.append(c);
                 } else {
+                    isEnd = 0;
+                    tampon.append(c);
                     resp.append(tampon.toString());
                     tampon = new StringBuilder();
                 }
@@ -89,7 +92,7 @@ public class SocketReader {
         }
         MsgJson msgJson = new MsgJson(type.toString(), resp.toString());
         if (LOGGER.isDebugEnabled()) {
-            if (GetTurnOrder.TYPE.equals(msgJson.getType())) {
+            if (GetTurnOrder.TYPE.equals(msgJson.getType()) && isEnd == 5) {
                 LOGGER.debug("Reception message type '{}' : ", msgJson.getType());
             } else {
                 LOGGER.debug("Reception message type '{}' : {}", msgJson.getType(), msgJson.getJson());

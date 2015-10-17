@@ -3,13 +3,13 @@ package fr.poulet4j.core.message.server;
 import fr.poulet4j.model.GameMap;
 
 /**
- * Demande le resultat du tour de l'IA.
+ * Demande le résultat du tour de l'IA.
  */
 public class GetTurnOrder extends GameServerMessage {
 
     public static final String TYPE = "getTurnOrder";
 
-    /** Les donn�es de la partie */
+    /** Les données de la partie */
     public GameMap data;
 
     public GetTurnOrder() {

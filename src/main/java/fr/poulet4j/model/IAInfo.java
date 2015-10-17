@@ -5,9 +5,8 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-/** Objet du model reprÈsentant une IA **/
+/** Objet du model repr√©sentant une IA **/
 public class IAInfo implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     /** id de l'IA **/
@@ -22,15 +21,37 @@ public class IAInfo implements Serializable {
     /** Points de mouvement **/
     public int pm;
 
-    /** Liste des items rÈcupÈrÈes **/
+    /** Liste des items r√©cup√©r√©s **/
     public ArrayList<Item> items;
 
-    /** DurÈe en nombre de tour de l'invisibilitÈ **/
+    /** Dur√©e en nombre de tour de l'invisibilit√© **/
     public int invisibilityDuration = 0;
 
     /** le profil de l'ia */
     public Profil profil;
 
+    /** le token pour controler l'identit√© de l'IA. www.codeofwar.net pour obtenir un token. */
+    public String token;
+
+    /**
+     * Constructeur.
+     */
+    public IAInfo() {}
+
+    /**
+     * Constructeur.
+     * @param name : nom de l'IA
+     * @param avatar : url de l'avatar
+     * @param profil : profil de l'IA
+     */
+    public IAInfo(String name, String avatar, Profil profil, String token) {
+        this.name = name;
+        this.avatar = avatar;
+        this.profil = profil;
+        this.token = token;
+    }
+
+    /** Position de l'IA sur la map */
     @JsonIgnore
     public Cell position;
 }

@@ -2,6 +2,7 @@ package fr.poulet4j.save;
 
 import java.io.Serializable;
 
+import fr.poulet4j.core.message.client.TurnResult;
 import fr.poulet4j.model.GameMap;
 
 public class SaveTurn implements Serializable {
@@ -11,5 +12,9 @@ public class SaveTurn implements Serializable {
     public int duration;
 
     public GameMap data;
+
+    public TurnResult turnResult;
+
+    public String json;
 
 }

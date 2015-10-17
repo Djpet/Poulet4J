@@ -6,20 +6,32 @@ package fr.poulet4j.model;
 public enum Profil {
 
     /**
-     * Le scientifique
+     * Le nain est immunisé contre les pièges.
      */
-    TECH_WIZARD,
+    MASTER_OF_COINS(0),
 
     /**
-     * Le financier
+     * L'alchimiste est immunisé contre la potion d'invisibilité (immunise aussi le poulet).
      */
-    MASTER_OF_COINS,
+    TECH_WIZARD(1),
 
     /**
-     * Le commercial
+     * L'elfe immunise le poulet contre le parfum de poulette.
      */
-    HAND_OF_THE_KING,
+    HAND_OF_THE_KING(2),
 
-    SHEEP;
+    /**
+     * Le poulet (ou c'est un mouton déguisé en poulet, mystère).
+     */
+    SHEEP(3);
 
+    private int code;
+
+    private Profil(int code) {
+        this.code = code;
+    }
+
+    public int getCode() {
+        return code;
+    }
 }

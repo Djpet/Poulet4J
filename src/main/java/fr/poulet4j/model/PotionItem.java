@@ -1,7 +1,9 @@
 package fr.poulet4j.model;
 
 /**
- * Item de potion d'invisibilité. Utilisée pour masquer sa position aux autres.
+ * Item de potion d'invisibilitÃ©.<br>
+ * UtilisÃ© pour masquer sa position aux autres<br>
+ * {@link GameConstants#INVISIBILITY_DURATION}
  */
 public class PotionItem extends Item {
 

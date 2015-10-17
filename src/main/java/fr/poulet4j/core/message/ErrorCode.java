@@ -8,8 +8,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum ErrorCode {
 
-    /** DÈja authentifiÈ */
+    /** D√©j√† authentifi√© */
     ALREADY_AUTH(1),
+
     /** Message inconnu */
     UNKNOWN_MESSAGE(2);
 

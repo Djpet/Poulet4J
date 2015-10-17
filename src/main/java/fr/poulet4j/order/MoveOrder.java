@@ -2,14 +2,21 @@ package fr.poulet4j.order;
 
 import fr.poulet4j.model.Cell;
 
+/**
+ * Ordre de dÃ©placement.
+ */
 public class MoveOrder extends TurnAction {
 
-    /** id de la cellule ciblée */
+    /** id de la cellule cible */
     public long target;
 
+    public MoveOrder() {
+        super(Action.MOVE);
+    }
+
     /**
-     * Constructor.
-     * @param targetCell : cellule ciblée
+     * Constructeur.
+     * @param targetCell : cellule cible
      */
     public MoveOrder(Cell targetCell) {
         super(Action.MOVE);
@@ -31,14 +38,4 @@ public class MoveOrder extends TurnAction {
     public void setTarget(long target) {
         this.target = target;
     }
-
-    /**
-     * Créer un ordre de déplacement.
-     * @param targetCell : cellule voisine visée.
-     * @return
-     */
-    public static MoveOrder create(Cell targetCell) {
-        return new MoveOrder(targetCell);
-    }
-
 }
