@@ -148,6 +148,10 @@ public final class Runner {
         }
     }
 
+    public void stop() throws IOException {
+        socket.close();
+    }
+
     private void fillInfo(final GameMap data) {
         // ia
         if (data.iaList.get(0).id == id) {
