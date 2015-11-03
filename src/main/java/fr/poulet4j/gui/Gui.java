@@ -19,17 +19,23 @@ import javax.swing.JTextPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import fr.poulet4j.gui.saveturn.BackgroundBuilderSaveTurn;
+import fr.poulet4j.gui.saveturn.IaAndItemBuilderSaveTurn;
+import fr.poulet4j.gui.saveturn.InfosIaBuilderSaveTurn;
+import fr.poulet4j.gui.saveturn.SaveLoader;
+import fr.poulet4j.save.SaveTurn;
+
 /**
  * Interface d'analyse.
  */
-public class Gui extends JFrame {
+public class Gui<T> extends JFrame {
 
     private static final String N_DU_TOUR = "N° du tour : ";
 
     private static final long serialVersionUID = 1L;
 
     private JFileChooser fc = new JFileChooser();
-    private GuiControler guiControler;
+    private GuiControler<T> guiControler;
 
     protected JSlider slider;
 
@@ -40,10 +46,22 @@ public class Gui extends JFrame {
     protected JTextPane iaInfo1;
 
     protected JTextPane iaInfo2;
+    protected JTextPane pouletInfo;
 
-    public Gui() {
+    public static Gui<SaveTurn> create() {
+        Gui<SaveTurn> gui = new Gui<SaveTurn>(new SaveLoader(), new InfosIaBuilderSaveTurn());
+        gui.add(new BackgroundBuilderSaveTurn());
+        gui.add(new IaAndItemBuilderSaveTurn());
+        return gui;
+    }
+
+    public Gui(GameReload<T> gameReload, InfosIaBuilder<T> iaBuilder) {
         super();
-        guiControler = new GuiControler(this);
+        guiControler = new GuiControler<T>(this, gameReload, iaBuilder);
+        init();
+    }
+
+    public void init() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setPreferredSize(new Dimension(1024, MapUI.MAP_SIZE + 100));
@@ -101,11 +119,15 @@ public class Gui extends JFrame {
         iaInfo2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         iaInfoPanel.add(iaInfo2);
 
+        pouletInfo = new JTextPane();
+        pouletInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        iaInfoPanel.add(pouletInfo);
+
         setVisible(true);
         pack();
     }
 
-    public Gui add(TurnImageBuilder turnBuilder) {
+    public Gui<T> add(TurnImageBuilder<T> turnBuilder) {
         guiControler.add(turnBuilder);
         return this;
     }

@@ -1,14 +1,17 @@
-package fr.poulet4j.gui;
+package fr.poulet4j.gui.saveturn;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import fr.poulet4j.gui.ImageRepo;
+import fr.poulet4j.gui.MapUI;
+import fr.poulet4j.gui.OneTurnImageBuilder;
 import fr.poulet4j.model.Cell;
 import fr.poulet4j.model.IAInfo;
 import fr.poulet4j.save.SaveTurn;
 
-public class IaAndItemBuilder implements OneTurnImageBuilder {
+public class IaAndItemBuilderSaveTurn implements OneTurnImageBuilder<SaveTurn> {
 
     private static final int SIZE_IA_CIRCLE = 3;
 

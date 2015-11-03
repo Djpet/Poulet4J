@@ -30,7 +30,6 @@ public class SaveGame implements ISaveGame {
      * {@inheritDoc}
      */
     public void init() {
-        time = new Date();
         mapper = new ObjectMapper();
 
         File saveDir = new File("save");
@@ -49,7 +48,8 @@ public class SaveGame implements ISaveGame {
      */
     public void write(GameMap data, TurnResult turnResult, int duration, String json) {
         if (data.currentTurn == 0) {
-            SimpleDateFormat sdf = new SimpleDateFormat("hh_mm_ss");
+            time = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyy_MM_dd_HH_mm_ss");
             filename = "save/" + sdf.format(time) + "-" + data.iaList.get(0).name + "_vs_" + data.iaList.get(1).name + ".log";
         }
         SaveTurn saveTurn = new SaveTurn();

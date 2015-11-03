@@ -8,11 +8,11 @@ Un IDE Java et Maven 3 (projet démo prévu pour eclipse)
 ## Première installation dans eclipse
 Télécharger la démo [ici](http://jonathan.peturaud.free.fr/poulet4j/Bot.zip)
 
-Dans eclipse, File -> Import, puis General -> Existing Projects in to Workspace et enfin Finish
+Dans eclipse, *File* -> *Import*, puis *General* -> *Existing Projects in to Workspace* et enfin *Finish*
 
 Le projet est prêt.
 
-Pour lancer un bot, Clic droit -> Run As -> Java Application 
+Pour lancer un bot, *Clic droit* -> *Run As* -> *Java Application*
 
 ## API
 La javadoc de l'API est disponible [ici](http://jonathan.peturaud.free.fr/poulet4j/api/index.html)
@@ -26,18 +26,18 @@ La dernière dépendance est
 		<dependency>
 			<groupId>fr.poulet4j</groupId>
 			<artifactId>Poulet4j</artifactId>
-			<version>1.0.5</version>
+			<version>1.0.9</version>
 		</dependency>
 ```
 
 ## Sauvegarde de la partie et Visualisation
 Il est possible de sauvegarder la partie en ajoutant **.saveGame()** au Runner. Cela donne :
 ```java
-        Runner.ia(new Bot1())**.saveGame()**.connectAndRun("localhost");
+        Runner.ia(new Bot1()).saveGame().connectAndRun("localhost");
 ```
 
 Les sauvegardes sont enregistrées dans le dossier **save**.
-Pour les lire, il suffit de lancer la classe **GuiRun.java**, choisir un fichier et se déplacer avec le slider ou les flèches. 
+Pour les lire, il suffit de lancer la méthode **Gui.create()**, choisir un fichier et se déplacer avec le slider ou les flèches. 
 
 ** Attention ** :
  - la sauvegarde ne contient que la vision du Bot et ses actions. 
@@ -46,6 +46,10 @@ Pour les lire, il suffit de lancer la classe **GuiRun.java**, choisir un fichier
  
 ## Changelog
   
+### 1.0.9
+ 	- API compatible avec la version 1.0.9 du serveur
+ 	- Modification de l'IHM visualisation et de son lancement *Gui.create()*.
+ 	
 ### 1.0.5
  	- API compatible avec la version 1.0.5 du serveur
  	- Sauvegarde + Visualisation

@@ -1,17 +1,19 @@
-package fr.poulet4j.gui;
+package fr.poulet4j.gui.gamemap;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import fr.poulet4j.gui.MapUI;
+import fr.poulet4j.gui.OneTurnImageBuilder;
 import fr.poulet4j.model.Cell;
-import fr.poulet4j.save.SaveTurn;
+import fr.poulet4j.model.GameMap;
 
-public class BackgroundBuilder implements OneTurnImageBuilder {
+public class BackgroundBuilderGameMap implements OneTurnImageBuilder<GameMap> {
 
     private BufferedImage bufferedImage;
 
-    public BufferedImage build(final SaveTurn saveTurn) {
+    public BufferedImage build(GameMap data) {
 
         if (bufferedImage == null) {
             bufferedImage = new BufferedImage(MapUI.MAP_SIZE, MapUI.MAP_SIZE, BufferedImage.TYPE_INT_RGB);
@@ -19,7 +21,7 @@ public class BackgroundBuilder implements OneTurnImageBuilder {
             g.setBackground(Color.WHITE);
             g.fillRect(0, 0, MapUI.MAP_SIZE, MapUI.MAP_SIZE);
 
-            Cell[][] cells = saveTurn.data.cells;
+            Cell[][] cells = data.cells;
             g.setColor(Color.BLACK);
             for (int x = 0; x < MapUI.CELL_NUMBER; x++) {
                 for (int y = 0; y < MapUI.CELL_NUMBER; y++) {
@@ -41,5 +43,4 @@ public class BackgroundBuilder implements OneTurnImageBuilder {
         }
         return bufferedImage;
     }
-
 }
