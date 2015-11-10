@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JPanel;
+
+import fr.poulet4j.gui.Controler;
 import fr.poulet4j.gui.MapUI;
 import fr.poulet4j.gui.OneTurnImageBuilder;
 import fr.poulet4j.model.Cell;
@@ -42,5 +45,9 @@ public class BackgroundBuilderGameMap implements OneTurnImageBuilder<GameMap> {
             }
         }
         return bufferedImage;
+    }
+
+    public JPanel getControlPanel(Controler controler) {
+        return null;
     }
 }

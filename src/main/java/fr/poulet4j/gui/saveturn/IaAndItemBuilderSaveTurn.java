@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JPanel;
+
+import fr.poulet4j.gui.Controler;
 import fr.poulet4j.gui.ImageRepo;
 import fr.poulet4j.gui.MapUI;
 import fr.poulet4j.gui.OneTurnImageBuilder;
@@ -76,6 +79,10 @@ public class IaAndItemBuilderSaveTurn implements OneTurnImageBuilder<SaveTurn> {
             }
         }
         return bufferedImage;
+    }
+
+    public JPanel getControlPanel(Controler controler) {
+        return null;
     }
 
 }

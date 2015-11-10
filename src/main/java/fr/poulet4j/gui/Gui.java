@@ -3,6 +3,7 @@ package fr.poulet4j.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -48,6 +49,8 @@ public class Gui<T> extends JFrame {
     protected JTextPane iaInfo2;
     protected JTextPane pouletInfo;
 
+    protected JPanel controlers;
+
     public static Gui<SaveTurn> create() {
         Gui<SaveTurn> gui = new Gui<SaveTurn>(new SaveLoader(), new InfosIaBuilderSaveTurn());
         gui.add(new BackgroundBuilderSaveTurn());
@@ -64,7 +67,7 @@ public class Gui<T> extends JFrame {
     public void init() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setPreferredSize(new Dimension(1024, MapUI.MAP_SIZE + 100));
+        setPreferredSize(new Dimension(MapUI.MAP_SIZE + 200 + 200 + 10, MapUI.MAP_SIZE + 100));
         getContentPane().setLayout(new BorderLayout(0, 0));
 
         JPanel bottom = new JPanel();
@@ -122,6 +125,13 @@ public class Gui<T> extends JFrame {
         pouletInfo = new JTextPane();
         pouletInfo.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         iaInfoPanel.add(pouletInfo);
+
+        controlers = new JPanel();
+        controlers.setMinimumSize(new Dimension(200, 200));
+        controlers.setMaximumSize(new Dimension(200, 2000));
+        getContentPane().add(controlers, BorderLayout.EAST);
+        LayoutManager layout = new BoxLayout(controlers, BoxLayout.Y_AXIS);
+        controlers.setLayout(layout);
 
         setVisible(true);
         pack();
