@@ -68,7 +68,7 @@ public class GuiControler<T> {
         return null;
     }
 
-    void loadFile(final File file) {
+    public void loadFile(final File file) {
         turns = gameReload.loadFile(file);
 
         gui.slider.setValue(0);

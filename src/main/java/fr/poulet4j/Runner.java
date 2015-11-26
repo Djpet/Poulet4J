@@ -113,6 +113,7 @@ public final class Runner {
         authenticate.name = iaInfo.name;
         authenticate.avatar = iaInfo.avatar;
         authenticate.profil = iaInfo.profil.getCode();
+        authenticate.token = iaInfo.token;
         writer.write(authenticate);
 
         GameServerMessage message = reader.read();

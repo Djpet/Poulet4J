@@ -16,6 +16,9 @@ public class Authenticate extends ClientMessage {
     /** le profil de l'ia. */
     public int profil;
 
+    /** l'url vers l'avatar de l'IA */
+    public String token;
+
     /**
      * Constructeur.
      */

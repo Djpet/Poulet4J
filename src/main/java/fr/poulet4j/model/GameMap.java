@@ -36,4 +36,14 @@ public class GameMap implements Serializable {
     @JsonIgnore
     public IAInfo poulet;
 
+    /**
+     * Retourne la cellule au coordonnée (x,y) (x et y compris entre 0 et 24).
+     * @param x : x entre 0 et 24
+     * @param y : y entre 0 et 24
+     * @return la cellule
+     */
+    public Cell getCell(int x, int y) {
+        return cells[y][x];
+    }
+
 }

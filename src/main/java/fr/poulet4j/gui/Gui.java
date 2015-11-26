@@ -36,13 +36,13 @@ public class Gui<T> extends JFrame {
     private static final long serialVersionUID = 1L;
 
     private JFileChooser fc = new JFileChooser();
-    private GuiControler<T> guiControler;
+
+    public GuiControler<T> guiControler;
+    public MapUI mapUI;
 
     protected JSlider slider;
 
     protected JLabel lblNDuTour;
-
-    protected MapUI mapUI;
 
     protected JTextPane iaInfo1;
 
