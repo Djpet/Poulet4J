@@ -36,7 +36,9 @@ public class IAInfo implements Serializable {
     /**
      * Constructeur.
      */
-    public IAInfo() {}
+    public IAInfo() {
+        items = new ArrayList<Item>();
+    }
 
     /**
      * Constructeur.
@@ -49,6 +51,7 @@ public class IAInfo implements Serializable {
         this.avatar = avatar;
         this.profil = profil;
         this.token = token;
+        items = new ArrayList<Item>();
     }
 
     /** Position de l'IA sur la map */
