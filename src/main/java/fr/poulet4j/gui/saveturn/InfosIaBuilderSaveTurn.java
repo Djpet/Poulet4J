@@ -11,6 +11,7 @@ import fr.poulet4j.order.TurnAction;
 import fr.poulet4j.order.UseItemOrder;
 import fr.poulet4j.save.SaveTurn;
 
+@SuppressWarnings("deprecation")
 public class InfosIaBuilderSaveTurn implements InfosIaBuilder<SaveTurn> {
 
     public String[] getInfos(SaveTurn saveTurn) {
@@ -25,7 +26,11 @@ public class InfosIaBuilderSaveTurn implements InfosIaBuilder<SaveTurn> {
     private String buildInfoIa(IAInfo iaInfo, String iaTitle, SaveTurn saveTurn) {
         StringBuilder sb = new StringBuilder();
         sb.append(iaTitle).append(iaInfo.name).append("\n");
-        sb.append("x : ").append(iaInfo.position.x).append(" / y : ").append(iaInfo.position.y).append("\n");
+        if (iaInfo.position != null) {
+            sb.append("x : ").append(iaInfo.position.x).append(" / y : ").append(iaInfo.position.y).append("\n");
+        } else {
+            sb.append("x : ? / y : ?\n");
+        }
         sb.append("profil : ").append(iaInfo.profil.name()).append("\n");
         sb.append("pm : ").append(iaInfo.pm).append("\n");
         sb.append("invisibilityDuration : ").append(iaInfo.invisibilityDuration).append("\n");

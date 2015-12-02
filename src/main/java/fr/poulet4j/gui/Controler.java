@@ -13,6 +13,8 @@ import javax.swing.event.ChangeListener;
 
 public class Controler extends JPanel {
 
+    private static final long serialVersionUID = -1532415221494614671L;
+
     private GuiControler<?> guiControler;
 
     private TurnImageBuilder<?> turnImageBuilder;

@@ -5,6 +5,7 @@ import fr.poulet4j.model.Cell;
 /**
  * Ordre de déplacement.
  */
+@SuppressWarnings("deprecation")
 public class MoveOrder extends TurnAction {
 
     /** id de la cellule cible */
